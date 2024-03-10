@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<UserInfoDTO> getUsersById(@PathVariable Long id, @RequestParam(name = "detail", defaultValue = "false") boolean detail) {
+    public ResponseEntity<UserInfoDTO> getUserById(@PathVariable Long id, @RequestParam(name = "detail", defaultValue = "false") boolean detail) {
         UserInfoDTO userInfoById;
         if (detail) {
             userInfoById = userInfoService.getUserByIdDetail(id);
