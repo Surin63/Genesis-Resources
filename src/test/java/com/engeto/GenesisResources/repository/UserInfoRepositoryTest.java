@@ -36,7 +36,7 @@ class UserInfoRepositoryTest {
         //GIVEN
         assertThat(userInfoRepository.findAll()).isEmpty();
         String personId = "somePersonId";
-        userInfoRepository.save(new UserInfo("Stefan", "Impulse", personId, "someUuid"));
+        userInfoRepository.save(new UserInfo("Gabca", "Sem", personId, "someUuid"));
         assertThat(userInfoRepository.findAll()).hasSize(1);
 
         //WHEN
@@ -51,7 +51,7 @@ class UserInfoRepositoryTest {
         //GIVEN
         assertThat(userInfoRepository.findAll()).isEmpty();
         String personId = "somePersonId";
-        userInfoRepository.save(new UserInfo("Stefan", "Impulse", personId, "someUuid"));
+        userInfoRepository.save(new UserInfo("Gabca", "Sem", personId, "someUuid"));
         assertThat(userInfoRepository.findAll()).hasSize(1);
 
         //WHEN
@@ -66,7 +66,7 @@ class UserInfoRepositoryTest {
         //GIVEN
         assertThat(userInfoRepository.findAll()).isEmpty();
         String personId = "somePersonId";
-        userInfoRepository.save(new UserInfo("Stefan", "Impulse", personId, "someUuid"));
+        userInfoRepository.save(new UserInfo("Gabca", "Sem", personId, "someUuid"));
         assertThat(userInfoRepository.findAll()).hasSize(1);
 
         //WHEN
@@ -81,7 +81,7 @@ class UserInfoRepositoryTest {
         //GIVEN
         assertThat(userInfoRepository.findAll()).isEmpty();
         String personId = "somePersonId";
-        userInfoRepository.save(new UserInfo("Stefan", "Impulse", personId, "someUuid"));
+        userInfoRepository.save(new UserInfo("Gabca", "Sem", personId, "someUuid"));
         assertThat(userInfoRepository.findAll()).hasSize(1);
 
         //WHEN
@@ -96,9 +96,9 @@ class UserInfoRepositoryTest {
         // GIVEN
         assertThat(userInfoRepository.findAll()).isEmpty();
         String personId = "123456989951";
-        userInfoRepository.save(new UserInfo("Jack", "Sparow", "123456789654", "someUuid"));
-        userInfoRepository.save(new UserInfo("John", "Doe", personId, "someUuid2"));
-        userInfoRepository.save(new UserInfo("Alice", "Wonderland", "123654789951", "someUuid3"));
+        userInfoRepository.save(new UserInfo("Denca", "Hrcka", "123456789654", "someUuid"));
+        userInfoRepository.save(new UserInfo("Tomas", "Seva", personId, "someUuid2"));
+        userInfoRepository.save(new UserInfo("Honza", "Mat", "123654789951", "someUuid3"));
         assertThat(userInfoRepository.findAll()).hasSize(3);
 
         // WHEN
@@ -111,7 +111,7 @@ class UserInfoRepositoryTest {
     @Test
     void GIVEN_userInfo_entity_to_DB_WHEN_save_user_THEN_return_saved_user() {
         //GIVEN
-        UserInfo newUser = new UserInfo("Jack", "Johnson", "321654987951", "someUuid");
+        UserInfo newUser = new UserInfo("Antonin", "Pech", "321654987951", "someUuid");
         userInfoRepository.save(newUser);
 
         // WHEN
@@ -125,8 +125,8 @@ class UserInfoRepositoryTest {
     @Test
     void GIVEN_userInfoList_WHEN_findAll_users_THEN_return_userInfoList() {
         //GIVEN
-        userInfoRepository.save(new UserInfo("Jack", "Sparow", "123456789654", "someUuid"));
-        userInfoRepository.save(new UserInfo("John", "Doe", "123654789951", "someUuid2"));
+        userInfoRepository.save(new UserInfo("Denca", "Hrcka", "123456789654", "someUuid"));
+        userInfoRepository.save(new UserInfo("Tomas", "Seva", "123654789951", "someUuid2"));
 
         //WHEN
         List<UserInfo> usersList = userInfoRepository.findAll();
@@ -139,24 +139,24 @@ class UserInfoRepositoryTest {
     @Test
     void GIVEN_userInfo_object_WHEN_update_userInfo_THEN_return_updated_userInfo() {
         //GIVEN
-        UserInfo newUser = new UserInfo("Jack", "Johnson", "321654987951", "someUuid");
+        UserInfo newUser = new UserInfo("Antonin", "Pech", "321654987951", "someUuid");
         userInfoRepository.save(newUser);
 
         //WHEN
         UserInfo savedUser = userInfoRepository.findById(newUser.getId()).get();
-        savedUser.setName("Richie");
-        savedUser.setSurname("Rich");
+        savedUser.setName("Laura");
+        savedUser.setSurname("Sur");
         UserInfo updatedUser = userInfoRepository.save(savedUser);
 
         //THEN
-        assertThat(updatedUser.getName()).isEqualTo("Richie");
-        assertThat(updatedUser.getSurname()).isEqualTo("Rich");
+        assertThat(updatedUser.getName()).isEqualTo("Laura");
+        assertThat(updatedUser.getSurname()).isEqualTo("Sur");
     }
 
     @Test
     void GIVEN_userInfo_object_WHEN_delete_userInfo_THEN_remove_userInfo() {
         //GIVEN
-        UserInfo newUser = new UserInfo("Jack", "Johnson", "321654987951", "someUuid");
+        UserInfo newUser = new UserInfo("Antonin", "Pech", "321654987951", "someUuid");
         userInfoRepository.save(newUser);
 
         //WHEN
