@@ -1,6 +1,7 @@
 package com.engeto.GenesisResources.controller;
 
 import com.engeto.GenesisResources.model.ContactTypeDTO;
+import com.engeto.GenesisResources.service.ContactTypeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

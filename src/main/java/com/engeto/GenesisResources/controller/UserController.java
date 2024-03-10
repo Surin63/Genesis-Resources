@@ -2,6 +2,7 @@ package com.engeto.GenesisResources.controller;
 
 
 import com.engeto.GenesisResources.model.UserInfoDTO;
+import com.engeto.GenesisResources.service.UserInfoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
@@ -27,8 +28,8 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<UserInfoDTO> getUsersById(@PathVariable Long id, RequestParam(name = "detail", defaultValue = "false") boolean detail) {
-        UserInfoDTO userInfoDTO;
+    public ResponseEntity<UserInfoDTO> getUsersById(@PathVariable Long id, @RequestParam(name = "detail", defaultValue = "false") boolean detail) {
+        UserInfoDTO userInfoById;
         if (detail) {
             userInfoById = userInfoService.getUserByIdDetail(id);
         }else {
@@ -45,7 +46,7 @@ public class UserController {
     public ResponseEntity<List<UserInfoDTO>> getAllSortedById(@RequestParam(name = "detail", defaultValue = "false") boolean detail){
         List<UserInfoDTO> usersList;
         if (detail){
-            usersList = userInfoService.findAllUsersDetails();
+            usersList = userInfoService.findAllUsersDetail();
         }else {
             usersList = userInfoService.findAllUsers();
         }
@@ -57,7 +58,7 @@ public class UserController {
     }
 
     @PutMapping("/user/{id}")
-    public ResponseEntity<HttpStatus> updateUserById(@PathVariable("id") Long id, @ResponseBody UserInfoDTO updateUserInfoDTO){
+    public ResponseEntity<HttpStatus> updateUserById(@PathVariable("id") Long id, @RequestBody UserInfoDTO updateUserInfoDTO){
         if(userInfoService.getUserByIdDetail(id) != null){
             userInfoService.updateUserById(id, updateUserInfoDTO);
             return new ResponseEntity<>(HttpStatus.OK);
