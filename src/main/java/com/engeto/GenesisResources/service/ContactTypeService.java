@@ -43,7 +43,7 @@ public class ContactTypeService {
     }
 
     private ContactTypeDTO convertToDTO(ContactType contactType) {
-        ContactTypeDTO contactTypeDTO = modelMapper.map(contactType, ContactTypeDTO.class):
+        ContactTypeDTO contactTypeDTO = modelMapper.map(contactType, ContactTypeDTO.class);
         return contactTypeDTO;
     }
 

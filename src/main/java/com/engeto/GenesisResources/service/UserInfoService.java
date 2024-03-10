@@ -37,7 +37,7 @@ public class UserInfoService {
 
     public List<UserInfoDTO> findAllUsers() {
         final List<UserInfo> userInfos = userInfoRepository.findAll(Sort.by("id"));
-        userInfos.forEach(userInfo -> {
+        userInfos.forEach(user -> {
             user.setPersonId(null);
             user.setUuid(null);
         });
